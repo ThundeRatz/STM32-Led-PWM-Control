@@ -1,0 +1,41 @@
+{
+    "version": "0.3.0",
+    "configurations": [
+        {
+            "name": "Cortex Debug (ST-Util)",
+            "cwd": "${CMAKE_CURRENT_SOURCE_DIR}",
+            "executable": "build/${DEBUG_FILE_NAME}.elf",
+            "request": "launch",
+            "type": "cortex-debug",
+            "servertype": "stutil",
+            "gdbPath": "arm-none-eabi-gdb",
+            "device": "${DEVICE}",
+            "v1": false
+        },
+        {
+            "name": "Cortex Debug (ST-Link OpenOCD)",
+            "cwd": "${CMAKE_CURRENT_SOURCE_DIR}",
+            "executable": "build/${DEBUG_FILE_NAME}.elf",
+            "request": "launch",
+            "type": "cortex-debug",
+            "servertype": "openocd",
+            "gdbPath": "arm-none-eabi-gdb",
+            "configFiles":
+            [
+                "${OPENOCD_SCRIPTS_PATH}/interface/stlink.cfg",
+                "${OPENOCD_SCRIPTS_PATH}/target/${TARGET_CFG}.cfg"
+            ]
+        },
+        {
+            "name": "Cortex Debug (J-Link)",
+            "cwd": "${CMAKE_CURRENT_SOURCE_DIR}",
+            "executable": "build/${DEBUG_FILE_NAME}.elf",
+            "request": "launch",
+            "type": "cortex-debug",
+            "servertype": "jlink",
+            "gdbPath": "arm-none-eabi-gdb",
+            "device": "${DEVICE}",
+            "interface": "swd",
+        }
+    ]
+}
