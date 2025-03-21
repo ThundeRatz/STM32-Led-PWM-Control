@@ -4,10 +4,12 @@
  * @brief Main function for tests.
  */
 
+#include <stdio.h>
 #include "mcu.hpp"
 
-int main() {
+int main(void) {
     hal::mcu::init();
 
-    for (;;) { }
+    for (;;) {
+    }
 }
