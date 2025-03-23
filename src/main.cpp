@@ -5,13 +5,14 @@
  */
 
 #include "mcu.hpp"
-#include "target.hpp"
+// Inclua os arquivos necessários
+
 
 /*****************************************
  * Private Constant Definitions
  *****************************************/
 
-static constexpr uint16_t led_toggle_delay_ms = 1500;
+// defina constantes aqui, se necessário
 
 /*****************************************
  * Main Function
@@ -20,10 +21,7 @@ static constexpr uint16_t led_toggle_delay_ms = 1500;
 int main() {
     hal::mcu::init();
 
-    hal::Gpio led{led_config};
-
     for (;;) {
-        led.toggle();
-        hal::mcu::sleep(led_toggle_delay_ms);
+        //implemente a lógica principal do código
     }
 }
