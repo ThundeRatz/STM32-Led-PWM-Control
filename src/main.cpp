@@ -8,6 +8,7 @@
 #include "potentiometer.hpp"
 #include "led_pwm.hpp"
 #include "led_gpio.hpp"
+#include "utils.hpp"
 
 
 /*****************************************
