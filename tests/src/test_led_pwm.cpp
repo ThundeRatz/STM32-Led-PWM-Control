@@ -7,14 +7,17 @@
  */
 
  #include "mcu.hpp"
-
- // Inclua os arquivos necessários
+ #include "led_pwm.hpp"
 
  int main() {
     hal::mcu::init();
-     // Inicialize os periféricos necessários
+    LedPwm led(&htim3, MX_TIM3_Init, TIM_CHANNEL_4);
 
      for (;;) {
-         // Teste o LED com PWM
+        for(uint16_t i =0 ; i<100; i++){
+            led.set_intensity(i);
+            hal::mcu::sleep(20);
+        }
+
      }
  }

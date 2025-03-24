@@ -7,14 +7,15 @@
  */
 
  #include "mcu.hpp"
+ #include "potentiometer.hpp"
 
- // Inclua os arquivos necessários
+ static uint16_t potentiometer_value = 0;
 
  int main() {
     hal::mcu::init();
-     // Inicialize os periféricos necessários
+    Potentiometer potentiometer(&hadc1, MX_ADC1_Init);
 
      for (;;) {
-         // Teste o potenciômetro
+        potentiometer_value = potentiometer.get_value();
      }
  }

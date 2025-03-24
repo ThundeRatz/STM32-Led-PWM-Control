@@ -7,14 +7,17 @@
  */
 
 #include "mcu.hpp"
-
- // Inclua os arquivos necessários
+#include "led_gpio.hpp"
 
  int main() {
     hal::mcu::init();
-     // Inicialize os periféricos necessários
+    LedGpio led(GPIOC, GPIO_PIN_13, GPIO_PIN_RESET);
 
      for (;;) {
-         // Teste o LED com GPIO
+        led.on();
+        hal::mcu::sleep(1000);
+
+        led.off();
+        hal::mcu::sleep(2000);
      }
  }

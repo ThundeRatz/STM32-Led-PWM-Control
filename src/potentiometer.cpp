@@ -8,12 +8,12 @@
 
  #include "potentiometer.hpp"
  #include <cstdint>
- // Inclua os arquivos necessários
 
  Potentiometer::Potentiometer(ADC_HandleTypeDef* handle, void (*init_function)()) : handle(handle) {
-     // Implemente as inicializações
+    init_function();
+    HAL_ADC_Start_DMA(this->handle, this->buffer.data(), 1);
  }
 
  uint8_t Potentiometer::get_value() {
-     // Implemente o código para obter o valor do potenciômetro
+    return static_cast<uint16_t>(this->buffer.at(0));
  }
