@@ -26,7 +26,7 @@ set(CMAKE_BUILD_TYPE Debug)
 ## Project Configuration
 ###############################################################################
 
-set(CMAKE_PROJECT_NAME stm32_project_template)
+set(CMAKE_PROJECT_NAME stm32_led_pwm_control)
 
 # Set the board version to an empty string if your board doesn't have a version
 set(BOARD_VERSION "")
