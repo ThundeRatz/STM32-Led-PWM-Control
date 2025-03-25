@@ -30,7 +30,7 @@ public:
      *
      * @param intensity   Led's intensity to be set
      */
-    void set_intensity(uint8_t intensity);
+    void set_intensity(uint16_t intensity);
 
 private:
     TIM_HandleTypeDef* handle;

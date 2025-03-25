@@ -5,9 +5,9 @@
  */
 
 #include "mcu.hpp"
-#include "potentiometer.hpp"
-#include "led_pwm.hpp"
 #include "led_gpio.hpp"
+#include "led_pwm.hpp"
+#include "potentiometer.hpp"
 #include "utils.hpp"
 
 /*****************************************

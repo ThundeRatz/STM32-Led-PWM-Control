@@ -22,7 +22,7 @@ namespace utils {
  *
  * @return Mapped value
  */
-constexpr float map(float value, float from_low, float from_high, float to_low, float to_high) {
+constexpr uint16_t map(uint16_t value, uint16_t from_low, uint16_t from_high, uint16_t to_low, uint16_t to_high) {
     return (value - from_low) * (to_high - to_low) / (from_high - from_low) + to_low;
 }
 }  // namespace utils

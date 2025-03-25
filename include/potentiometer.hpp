@@ -34,7 +34,7 @@ public:
 private:
     ADC_HandleTypeDef* handle;
 
-    std::array<uint32_t, 1> buffer;
+    std::array<uint32_t, 1> buffer = {0};
 };
 
 #endif  // POTENTIOMETER_HPP

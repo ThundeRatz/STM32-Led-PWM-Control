@@ -9,14 +9,14 @@
 #include "led_pwm.hpp"
 #include "utils.hpp"
 
-LedPwm::LedPwm(TIM_HandleTypeDef* handle, void (*init_function)(), uint32_t led_channel) :
-    handle(handle), led_channel(led_channel) {
+LedPwm::LedPwm(TIM_HandleTypeDef* tim_handler, void (*init_function)(), uint32_t led_channel) :
+    handle(tim_handler), led_channel(led_channel) {
     init_function();
     HAL_TIM_PWM_Start(handle, led_channel);
     this->set_intensity(0);
 }
 
-void LedPwm::set_intensity(uint8_t intensity) {
+void LedPwm::set_intensity(uint16_t intensity) {
     uint16_t intensity_compare = utils::map(intensity, 0U, 100, 0, 1000);
     __HAL_TIM_SET_COMPARE(this->handle, this->led_channel, intensity_compare);
 }
