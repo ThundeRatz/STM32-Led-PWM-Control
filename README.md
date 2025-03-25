@@ -269,10 +269,9 @@ make -j
 
 ## 🙌 Agradecimentos
 
-Este projeto não teria sido possível sem o suporte e colaboração da equipe **ThundeRatz** como um todo.  
+Este projeto não teria sido possível sem o suporte e colaboração da equipe **ThundeRatz** como um todo.
 As decisões de arquitetura e organização foram fortemente baseadas nas boas práticas adotadas nos projetos da equipe, garantindo um código mais modular, eficiente e escalável.
 
 
-Também gostaríamos de reconhecer o projeto **[Micras](https://github.com/Team-Micras/MicrasFirmware)**, cujo desenvolvimento serviu de base para diversas decisões adotadas aqui.  
+Também gostaríamos de reconhecer o projeto **[Micras](https://github.com/Team-Micras/MicrasFirmware)**, cujo desenvolvimento serviu de base para diversas decisões adotadas aqui.
 As discussões técnicas e desafios enfrentados no Micras ajudaram a moldar a estrutura e as boas práticas deste template.
-
