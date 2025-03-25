@@ -6,16 +6,16 @@
  * @date 03/2025
  */
 
- #include "mcu.hpp"
- #include "potentiometer.hpp"
+#include "mcu.hpp"
+#include "potentiometer.hpp"
 
- static uint16_t potentiometer_value = 0;
+static uint16_t potentiometer_value = 0;
 
- int main() {
+int main() {
     hal::mcu::init();
     Potentiometer potentiometer(&hadc1, MX_ADC1_Init);
 
-     for (;;) {
+    for (;;) {
         potentiometer_value = potentiometer.get_value();
-     }
- }
+    }
+}
