@@ -4,37 +4,37 @@
  * @brief Main function
  */
 
-#include <adc.h>
-#include <stm32f1xx_hal_gpio.h>
-#include <tim.h>
 #include "mcu.hpp"
+#include "led_gpio.hpp"
+#include "led_pwm.hpp"
 #include "potentiometer.hpp"
-#include "rgb.hpp"
-#include "button.hpp"
+#include "utils.hpp"
 
 /*****************************************
  * Private Constant Definitions
  *****************************************/
 
-static constexpr uint16_t led_toggle_delay_ms = 1500;
+// defina constantes aqui, se necessário
 
 /*****************************************
  * Main Function
  *****************************************/
 
-int main(void) {
+int main() {
     hal::mcu::init();
 
-    Button        button(GPIOA, GPIO_PIN_12, GPIO_PIN_SET);
     Potentiometer potentiometer(&hadc1, MX_ADC1_Init);
-    RGB           rgb(&htim1, MX_TIM1_Init, TIM_CHANNEL_1, TIM_CHANNEL_2, TIM_CHANNEL_3);
+    LedPwm        led_pwm(&htim3, MX_TIM3_Init, TIM_CHANNEL_4);
+    LedGpio       led_gpio(GPIOC, GPIO_PIN_13, GPIO_PIN_RESET);
 
     for (;;) {
-        if (button.is_pressed()) {
-            rgb.set_color(255, 255, 255);
+        uint16_t potentiometer_value = potentiometer.get_value();
+        uint16_t intensity = utils::map(potentiometer_value, 0, 4096, 0, 100);
+        led_pwm.set_intensity(intensity);
+        if (intensity > 50) {
+            led_gpio.on();
         } else {
-            uint16_t potentiometer_value = potentiometer.get_value();
-            rgb.set_color(potentiometer_value >> 8, potentiometer_value >> 8, potentiometer_value >> 8);
+            led_gpio.off();
         }
     }
 }

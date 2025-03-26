@@ -3,7 +3,7 @@
  *
  * @brief Potentiometer class
  *
- * @date 09/2024
+ * @date 03/2025
  */
 
 #ifndef POTENTIOMETER_HPP
@@ -27,14 +27,14 @@ public:
     /**
      * @brief Get the potentiometer reading
      *
-     * @return uint16_t Potentiometer reading
+     * @return uint16_t potentiometer reading
      */
-    uint16_t get_value();
+    uint8_t get_value();
 
 private:
     ADC_HandleTypeDef* handle;
 
-    std::array<uint32_t, 1> buffer;
+    std::array<uint32_t, 1> buffer = {0};
 };
 
 #endif  // POTENTIOMETER_HPP

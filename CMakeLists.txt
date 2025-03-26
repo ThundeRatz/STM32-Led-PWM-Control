@@ -26,10 +26,10 @@ set(CMAKE_BUILD_TYPE Debug)
 ## Project Configuration
 ###############################################################################
 
-set(CMAKE_PROJECT_NAME rgb_led_control)
+set(CMAKE_PROJECT_NAME stm32_led_pwm_control)
 
 # Set the board version to an empty string if your board doesn't have a version
-set(BOARD_VERSION v1)
+set(BOARD_VERSION "")
 
 if(BOARD_VERSION STREQUAL "")
     set(PROJECT_RELEASE ${CMAKE_PROJECT_NAME})
